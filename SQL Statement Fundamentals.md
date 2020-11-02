@@ -117,3 +117,14 @@ SELECT titel FROM film
 WHERE rental_rate >4 AND replacement_cost >= 19.99
 AND rating='R'
 ```
+
+```sql
+SELECT phone FROM address
+WHERE address = '259 Ipoh Drive'
+```
+
+#### ORDER BY Function - 
+
+* You may have noticed PostgreSQL sometimes returns the same request query results in a different order. 
+* You can use **ORDER BY** to sort rows based on a column value, in either ascending or descending order. 
+
