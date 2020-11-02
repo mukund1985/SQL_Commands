@@ -230,4 +230,33 @@ WHERE length <=50
 * The **BETWEEN** operator can also be used with dates. You need to format dates in the ISO 8601 standard format, which is YYYY-MM-DD. 
    * date **BETWEEN** '2007-01-01' **AND** '2007-02-01'
 
+* When using **BETWEEN** operator with dates that also include timestamp information, pay careful attention to using **BETWEEN** versu <=,>= comparison operators, due to fact that a datetime starts at 0:00.
+
+
+* Examples-
+
+```sql
+SELECT * FROM payment
+WHERE amount BETWEEN 8 AND 9
+```
+
+```sql
+SELECT COUNT (*) FROM payment
+WHERE amount BETWEEN 8 AND 9
+```
+
+```sql
+SELECT COUNT (*) FROM payment
+WHERE amount NOT BETWEEN 8 AND 9
+```
+
+```sql
+SELECT * FROM payment
+WHERE payment_date BETWEEN '2007-02-01' AND '2007-02-15'
+```
+
+**Note**- Here while dealing with Date, need to take care timings 00:00 or 23:59. 
+
+
+#### IN Keyword - 
 
