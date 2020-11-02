@@ -1,5 +1,17 @@
 # SQL Statement Fundamentals
 
+* SELECT Statement
+* SELECT DISTINCT
+* COUNT
+* SELECT WHERE
+* ORDER BY
+* LIMIT
+* BETWEEN
+* IN
+* LIKE and ILIKE
+
+
+
 #### Database
 
 Create
@@ -127,4 +139,20 @@ WHERE address = '259 Ipoh Drive'
 
 * You may have noticed PostgreSQL sometimes returns the same request query results in a different order. 
 * You can use **ORDER BY** to sort rows based on a column value, in either ascending or descending order. 
+
+* Basic Syntax for **ORDER BY** - 
+
+```sql
+      SELECT column_1,column_2
+      FROM table
+      ORDER BY column_1 ASC/DESC
+```
+
+```sql
+
+      SELECT address_id FROM customer
+      ORDER BY address_id ASC
+```
+
+**Note** - ORDER BY comes towards the ends of a query, since we want to do any selection and filtering first, before finally sorting. 
 
