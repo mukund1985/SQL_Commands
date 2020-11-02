@@ -73,6 +73,7 @@ select first_name,last_name,email from customer
 #### Select Distinct - 
 
 Sometimes a table contains a column that has duplicate values, and you may find yourself in a situation where you only want to list the unique/distinct values. The __Distinct__ keyword can be used to return only the distinct values in a column.  The __Distinct__ keyword operates _on_ a column. 
+Calling __Distinct__ answer - What are the unique columns are there in the table.
 
 To Clarify which column __Distinct__ is being applied to, you can also use parenthesis for clarity:
 
@@ -80,9 +81,9 @@ To Clarify which column __Distinct__ is being applied to, you can also use paren
 SELECT DISTINCT column FROM table
 ```
 
-Calling __Distinct__ answer - What are the unique columns are there in the table.
 
 
-### Count Function - 
+
+#### Count Function - 
 
 The __COUNT__ function returns the number of input rows that match a specific condition of a query. 
