@@ -81,6 +81,15 @@ SELECT COUNT(*) FROM payment;
 SELECT COUNT(DISTINCT amount) FROM payment;
 ```
 
+* Example - 
+
+```sql
+SELECT COUNT (*) FROM payment
+```
+
+```sql
+SELECT COUNT (payment_date) FROM payment
+```
 
 #### SELECT WHERE Function - 
 
@@ -179,3 +188,21 @@ ORDER BY store_id DESC,first_name ASC
 
 Its time to see some examples - 
 
+``` sql
+SELECT * FROM payment
+WHERE amount != 0.00
+ORDER BY payment_date ASC
+LIMIT 5;
+```
+
+``` sql
+SELECT customer_id FROM payment
+ORDER BY payment_date ASC
+LIMIT 10;
+```
+
+``` sql
+SELECT title,length from FILM
+ORDER BY length ASC
+LIMIT 5
+```
