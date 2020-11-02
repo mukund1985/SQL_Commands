@@ -95,3 +95,50 @@ LIMIT 5
 
 * If you want to start results based on the aggregate, make sure to reference the entire function. 
 
+**Examples - 
+
+```sql
+SELECT customer_id FROM payment
+GROUP BY customer_id
+ORDER BY customer_id
+```
+
+```sql
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+```
+
+```sql
+SELECT customer_id, COUNT(amount) FROM payment
+GROUP BY customer_id
+ORDER BY COUNT(amount) DESC
+```
+
+```sql
+SELECT customer_id,staff_id,SUM(amount) FROM payment
+GROUP BY staff_id,customer_id
+ORDER BY customer_id
+```
+
+We can do as same like below as well, so at the **SELECT** doesnt matter the position but while doing **GROUP BY** position matters. 
+
+```sql
+SELECT staff_id,customer_id,SUM(amount) FROM payment
+GROUP BY staff_id,customer_id
+ORDER BY staff_id,customer_id
+```
+
+```sql
+SELECT staff_id,customer_id,SUM(amount) FROM payment
+GROUP BY staff_id,customer_id
+ORDER BY SUM(amount)
+```
+
+* Lets see the **GROUP BY** at date column. 
+
+```sql
+SELECT DATE(payment_date), SUM(amount) FROM payment
+GROUP BY DATE(payment_date)
+ORDER BY SUM(amount)
+```
