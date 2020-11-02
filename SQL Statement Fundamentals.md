@@ -1,6 +1,6 @@
 # SQL Statement Fundamentals
 
-#### Database
+<u>#### Database</u>
 Create
 ```sql
 create database dbname;
@@ -36,7 +36,7 @@ SELECT DISTINCT column FROM table
 
 #### Count Function - 
 
-The __COUNT__ function returns the number of input rows that match a specific condition of a query. 
+* The __COUNT__ function returns the number of input rows that match a specific condition of a query. 
 We can apply __COUNT__ on a spefic column or just pass __COUNT(*)__. 
 
 ```sql
@@ -50,3 +50,16 @@ SELECT COUNT(*) FROM table
 ```
 
 Above all statement return the same thing. 
+
+* Because of this __COUNT__ by itself simply returns    back a count of the number of rows in a table. 
+* **COUNT** is much more useful when combined with other commands, such as **DISTINCT**. 
+
+```sql
+SELECT COUNT(DISTINCT name) FROM table
+```
+
+**Count Example**
+
+```sql
+SELECT COUNT(*) FROM payment;
+```
