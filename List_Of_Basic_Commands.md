@@ -75,7 +75,7 @@ Sometimes a table contains a column that has duplicate values, and you may find 
 
 The __Distinct__ keyword can be used to return only the distinct values in a column. 
 
-The __DISTINCT__ keyword operates _on_ a column. 
+The __Distinct__ keyword operates _on_ a column. 
 
 ```sql
 SELECT DISTINCT column FROM table
