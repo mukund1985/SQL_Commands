@@ -143,15 +143,15 @@ WHERE address = '259 Ipoh Drive'
 * Basic Syntax for **ORDER BY** - 
 
 ```sql
-      SELECT column_1,column_2
-      FROM table
-      ORDER BY column_1 ASC/DESC
+SELECT column_1,column_2
+FROM table
+ORDER BY column_1 ASC/DESC
 ```
 
 ```sql
 
-      SELECT address_id FROM customer
-      ORDER BY address_id ASC
+SELECT address_id FROM customer
+ORDER BY address_id ASC
 ```
 
 **Note** - ORDER BY comes towards the ends of a query, since we want to do any selection and filtering first, before finally sorting. 
