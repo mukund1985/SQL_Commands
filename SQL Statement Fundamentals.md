@@ -38,3 +38,15 @@ SELECT DISTINCT column FROM table
 
 The __COUNT__ function returns the number of input rows that match a specific condition of a query. 
 We can apply __COUNT__ on a spefic column or just pass __COUNT(*)__. 
+
+```sql
+SELECT COUNT(name) FROM table
+```
+```sql
+SELECT COUNT(choice) FROM table
+```
+```sql
+SELECT COUNT(*) FROM table
+```
+
+Above all statement return the same thing. 
