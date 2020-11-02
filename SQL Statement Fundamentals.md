@@ -1,6 +1,7 @@
 # SQL Statement Fundamentals
 
-<u>#### Database</u>
+#### Database
+
 Create
 ```sql
 create database dbname;
@@ -22,22 +23,22 @@ select * from information_schema.tables;
 select first_name,last_name,email from customer
 ```
 
-#### Select Distinct - 
+#### DISTINCT Function - 
 
-Sometimes a table contains a column that has duplicate values, and you may find yourself in a situation where you only want to list the unique/distinct values. The __Distinct__ keyword can be used to return only the distinct values in a column.  The __Distinct__ keyword operates _on_ a column. 
-Calling __Distinct__ answer - What are the unique columns are there in the table.
-
-To Clarify which column __Distinct__ is being applied to, you can also use parenthesis for clarity:
+* Sometimes a table contains a column that has duplicate values, and you may find yourself in a situation where you only want to list the unique/distinct values. 
+* The __Distinct__ keyword can be used to return only the distinct values in a column.  The __Distinct__ keyword operates _on_ a column. 
+* Calling __Distinct__ answer - What are the unique columns are there in the table.
+* To Clarify which column __Distinct__ is being applied to, you can also use parenthesis for clarity:
 
 ```sql
 SELECT DISTINCT column FROM table
 ```
 
 
-#### Count Function - 
+#### COUNT Function - 
 
 * The __COUNT__ function returns the number of input rows that match a specific condition of a query. 
-We can apply __COUNT__ on a spefic column or just pass __COUNT(*)__. 
+* We can apply __COUNT__ on a spefic column or just pass __COUNT(*)__. 
 
 ```sql
 SELECT COUNT(name) FROM table
@@ -58,8 +59,25 @@ Above all statement return the same thing.
 SELECT COUNT(DISTINCT name) FROM table
 ```
 
-**Count Example**
+**Example**
 
 ```sql
 SELECT COUNT(*) FROM payment;
 ```
+
+```sql
+SELECT COUNT(DISTINCT amount) FROM payment;
+```
+
+
+#### SELECT WHERE Function - 
+
+* **SELECT** and **WHERE** are the most fundamental SQL statements and you will find yourself using them often. 
+* The **WHERE** statement allows us to specify conditions on columns for the rows to be returned. 
+* Basic Syntax example:- 
+
+    *  **SELECT** column1,column2
+    * **FROM** table
+    * **WHERE** conditions;
+
+
