@@ -95,7 +95,7 @@ LIMIT 5
 
 * If you want to start results based on the aggregate, make sure to reference the entire function. 
 
-**Examples - 
+*Examples - 
 
 ```sql
 SELECT customer_id FROM payment
@@ -140,5 +140,117 @@ ORDER BY SUM(amount)
 ```sql
 SELECT DATE(payment_date), SUM(amount) FROM payment
 GROUP BY DATE(payment_date)
-ORDER BY SUM(amount)
+ORDER BY SUM(amount) DESC
+```
+
+**GROUP BY Excercise**
+
+* We have two staff members, with Staff IDs 1 and 2. We want to give a bonus to the staff member that handled the most payments. (Most in terms of number of payments processed, not total dollor amount).
+* How many paymwnts did each staff member handle and who gets the bonus? 
+
+```sql
+SELECT staff_id,COUNT(amount)
+FROM payment
+GROUP BY staff_id
+```
+
+* Corporate HQ is conducting a study on the relationship between replacement cost and a movie MPAA rating (e.g. G, PG, R, etc)
+* What is the average replacement cost per MPAA rating?
+    * Note - You may need to expand the AVG column to view correct results. 
+
+```sql
+SELECT rating, (AVG(replacement_cost),2)
+FROM film
+GROUP BY rating
+```
+
+* We are running a promotion to reward our top 5 customers with coupons.
+* What are the customer ids of the top 5 customer by total spend? 
+
+```sql
+SELECT customer_id, SUM(amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5
+```
+
+**HAVING**
+
+* The **HAVING** clause allows us to filter **after** an aggregation has already taken place. 
+
+* Lets see some previous examples - 
+
+```sql
+SELECT company, SUM(sales)
+FROM finance_table
+GROUP BY company
+```
+
+* Lets convert this for **HAVING** type - 
+
+```sql
+SELECT company, SUM(sales)
+FROM finance_table
+WHERE comapny!= 'Google'
+GROUP BY company
+```
+* We have already seen we can filter before executing the **GROUP BY**, but what if we want to filter based on **SUM(sales)?**
+
+* We can not use **WHERE** to filter based off of aggregate results, because those happen **after** a **WHERE** is executed, So I can use **HAVING** clause. 
+
+```sql
+SELECT company, SUM(sales)
+FROM finance_table
+WHERE comapny!= 'Google'
+GROUP BY company
+HAVING SUM(sales) > 1000
+```
+
+* **HAVING** allows us to use the aggregate result as a filter along with a **GROUP BY**. 
+
+FInaly it will be look like - 
+
+```sql
+SELECT company,SUM(sales)
+FROM finance_table
+GROUP BY company
+HAVING SUM(sales) > 1000
+```
+
+* Examples - 
+
+```sql 
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 200
+```
+
+
+```sql
+SELECT store_id, COUNT(customer_id) FROM customer
+GROUP BY store_id
+HAVING COUNT(customer_id) > 300
+```
+
+**HAVING Excercise**
+
+* We are launching a platinum service for our most loyal customers. We will assign platinum status to customers that have had 40 or more transaction payments. 
+* What customer_ids are eligible for platinum status? 
+
+```sql
+SELECT customer_id, COUNT(*)
+FROM payment
+GROUP BY customer_id
+HAVING COUNT(*) >= 40
+```
+
+* What are the customer ids of customers who have spent more than $100 in payment transactions with our staff_id member 2 ?
+
+```sql
+SELECT customer_id, SUM(amount)
+FROM payment
+WHERE staff_id = 2
+GROUP BY customer_id
+HAVING SUM(amount) > 100
 ```
