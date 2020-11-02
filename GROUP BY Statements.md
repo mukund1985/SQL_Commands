@@ -51,3 +51,47 @@ SELECT SUM (replacement_cost)  FROM film
 
 **GROUP BY Function**
 
+* **GROUP BY** allows us to aggregate columns per some category. 
+
+```sql
+SELECT category_col, AGG(data_col)
+FROM table
+GROUP BY category_col
+```
+
+* The **GROUP BY** clause must appear right after a **FROM** or **WHERE** statement. 
+
+```sql
+SELECT category_col, AGG(data_col)
+FROM table
+WHERE category_col!='A'
+GROUP BY category_col
+```
+
+* In the **SELECT** statement, columns must either have an aggregate function or be in the **GROUP BY** call. 
+
+```sql
+SELECT company, division, SUM(sales)
+FROM finance_table
+GROUP BY company,division
+```
+
+```sql
+SELECT company,division,SUM(sales)
+FROM finance_table
+WHERE division IN ('marketing','transport')
+GROUP BY company,division
+```
+
+* **WHERE** statements should not refer to the aggregation result,. 
+
+```sql
+SELECT company, SUM(sales)
+FROM finance_table
+GROUP BY company
+ORDER BY SUM(sales)
+LIMIT 5
+```
+
+* If you want to start results based on the aggregate, make sure to reference the entire function. 
+
