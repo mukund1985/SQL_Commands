@@ -139,6 +139,11 @@ WHERE address = '259 Ipoh Drive'
 
 * You may have noticed PostgreSQL sometimes returns the same request query results in a different order. 
 * You can use **ORDER BY** to sort rows based on a column value, in either ascending or descending order. 
+* Use ASC to sort in ascending order. 
+* Use DESC to sort in descending order. 
+* If you leave it blank, **ORDER BY** uses ASC by default.
+
+
 
 * Basic Syntax for **ORDER BY** - 
 
@@ -155,4 +160,5 @@ ORDER BY address_id ASC
 ```
 
 **Note** - ORDER BY comes towards the ends of a query, since we want to do any selection and filtering first, before finally sorting. 
+
 
