@@ -80,4 +80,40 @@ SELECT COUNT(DISTINCT amount) FROM payment;
     * **FROM** table
     * **WHERE** conditions;
 
+* The **WHERE** clause appears immediately after the **FROM** clause of the **SELECT** statement. 
+* The Conditions are used to filter the rows reutrned from the **SELECT** statement. 
+* PostgreSQL prives a variety of standard operators to construct the conditions. 
 
+We first have - 
+
+* Comparison Operators - 
+   * Compare a column value to something.
+        * Is the price greater than $3.00?
+        * Is the pet's name equal to "Sam"?
+   * Logical Operators - 
+
+     * Allow us to combine multiple comparison operatos - 
+        * **AND**
+        * **OR**
+        * **NOT**   
+
+* Examples -
+
+```sql
+SELECT name, choice FROM table WHERE name = 'David';
+```  
+
+```sql
+SELECT name, choice FROM table WHERE name = 'David' AND choice='Red';
+```  
+
+```sql
+SELECT * FROM customer
+WHERE first_name = 'Jared';
+``` 
+
+```sql
+SELECT titel FROM film
+WHERE rental_rate >4 AND replacement_cost >= 19.99
+AND rating='R'
+```
