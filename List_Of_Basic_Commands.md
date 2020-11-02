@@ -54,8 +54,6 @@ Drop
 ```sql
 drop database dbname;
 ```
-                       |
-
 
 ## Below are some Basic SQL Commands Use in Daily Usages
 
