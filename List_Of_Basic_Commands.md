@@ -45,7 +45,10 @@ Date types
 | TIME()      | A time. Format: HH:MI:SSNote: The supported range is from '-838:59:59' to '838:59:59'                                                                                                                                                    |
 | YEAR()      | A year in two-digit or four-digit format.Note: Values allowed in four-digit format: 1901 to 2155. Values allowed in two-digit format: 70 to 69, representing years from 1970 to 2069                                                     |
 
-# Database
+
+## Below are some Basic SQL Commands Use in Daily Usages
+
+### Database
 Create
 ```sql
 create database dbname;
@@ -54,8 +57,6 @@ Drop
 ```sql
 drop database dbname;
 ```
-
-## Below are some Basic SQL Commands Use in Daily Usages
 
 ### List All tables from schema - 
 
