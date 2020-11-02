@@ -63,3 +63,14 @@ drop database dbname;
 select * from information_schema.tables;
 ```
 
+### Selecting Multiple Columns from Table-
+
+```sql
+select first_name,last_name,email from customer
+```
+
+### Select Distinct - 
+
+Sometimes a table contains a column that has duplicate values, and you may find yourself in a situation where you only want to list the unique/distinct values. 
+The __Distinct__ keyword can be used to return only the distinct values in a column. 
+
