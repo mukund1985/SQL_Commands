@@ -71,7 +71,7 @@ Above all statement return the same thing.
 SELECT COUNT(DISTINCT name) FROM table
 ```
 
-**Example**
+* Example - 
 
 ```sql
 SELECT COUNT(*) FROM payment;
@@ -81,14 +81,12 @@ SELECT COUNT(*) FROM payment;
 SELECT COUNT(DISTINCT amount) FROM payment;
 ```
 
-* Example - 
-
 ```sql
-SELECT COUNT (*) FROM payment
+SELECT COUNT (payment_date) FROM payment
 ```
 
 ```sql
-SELECT COUNT (payment_date) FROM payment
+SELECT COUNT (DISTINCT payment_date) FROM payment
 ```
 
 #### SELECT WHERE Function - 
