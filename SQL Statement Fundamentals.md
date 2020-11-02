@@ -304,3 +304,131 @@ WHERE first_name IN ('John','Jake','Julie')
 SELECT * FROM customer
 WHERE first_name NOT IN ('John','Jake','Julie')
 ```
+
+#### LIKE and ILIKE Keyword (Using Pattern Matching)- 
+
+* We have already been able to perform direct comparisons against strings, such as:
+    * WHERE first_name = 'John'
+
+* But what if we want to match against a general pattern in a string? 
+    * All emails sending in '@gmail.com'
+    * All names that begin with an 'A'
+
+* The **LIKE** operator allows us to perform pattern matching against string data with the use of **wildcard** characters:
+    * Percent %
+        * Matches any sequence of characters
+    * Underscore _
+        * Matches any single character
+
+* All names that begin with an 'A'
+    * WHERE name LIKE 'A%'
+
+* All names that end with an 'a'
+    * WHERE name LIKE '%a'
+
+Notice that **LIKE** is case-sensitive, we can use **ILIKE** which is case-sensitive.
+
+* Using the underscore allows us to replace just a single character. 
+   * Get all Mission Impossible films
+   * WHERE title LIKE 'Mission Impossible _'
+
+* You can use multiple underscores.
+
+* Imagine we had version string codes in the form 'Version#A4', 'Version#B7', etc...
+    * **WHERE** value **LIKE** 'Version#_ _'
+
+* We can also combine pattern matching operators to create more complex patterns. 
+    * WHERE name LIKE '_her%'
+        * Cheryl
+        * Theresa
+        * Sherri
+
+* Example - 
+
+```sql
+SELECT * FROM customer
+WHERE first_name LIKE 'J%';
+```
+
+```sql
+SELECT COUNT (*) FROM customer
+WHERE first_name LIKE 'J%' AND las_name LIKE 'S%'
+```
+
+* If you do not want to worry about case sensitive, please try below one - 
+
+
+```sql
+SELECT COUNT (*) FROM customer
+WHERE first_name ILIKE 'j%' AND las_name ILIKE 's%'
+```
+
+```sql
+SELECT * FROM customer
+WHERE first_name LIKE '%er%'
+```
+
+* Only one character allowed - 
+
+```sql
+SELECT * FROM customer
+WHERE first_name LIKE '_her%'
+```
+
+```sql
+SELECT * FROM customer
+WHERE first_name NOT LIKE '_her%'
+```
+
+```sql
+SELECT * FROM customer
+WHERE first_name LIKE 'A%' AND last_name NOT LIKE 'B%'
+ORDER BY last_name
+```
+
+**Note** - % sign for long char and _ for one single char. 
+
+
+**Excercise** 
+
+* How many payment transactions were greater that $5.00? 
+
+```sql
+SELECT COUNT(amount) FROM payment
+WHERE amount > 5;
+```
+
+* How many actors have a first name that starts with the letter P?
+
+```sql
+SELECT COUNT(*) FROM actor
+WHERE first_name LIKE 'P%';
+```
+
+* How many unique districts are our customers from?
+
+```sql
+SELECT COUNT(DISTINCT(district)) 
+FROM address;
+```
+
+* Retrieve the list of names for those distinct districts from the previous question.
+
+```sql
+SELECT DISTINCT(district) FROM address;
+```
+
+* How many films have a rating of R and a replacement cost between $5 and $15?
+
+```sql
+SELECT COUNT(*) FROM film
+WHERE rating = 'R'
+AND replacement_cost BETWEEN 5 AND 15;
+```
+
+* How many films have the word Truman somewhere in the title?
+
+```sql
+SELECT COUNT(*) FROM film
+WHERE title LIKE '%Truman%';
+```
