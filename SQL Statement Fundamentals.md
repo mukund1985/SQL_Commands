@@ -204,3 +204,30 @@ SELECT title,length from FILM
 ORDER BY length ASC
 LIMIT 5
 ```
+
+```sql
+SELECT COUNT(title) FROM film
+WHERE length <=50
+```
+
+#### BETWEEN Keyword - 
+
+* The **BETWEEN** operator can be used to match a value against a range of values:- 
+   * value **BETWEEN** low **AND** high 
+   * value >= low **AND** value <= high
+
+* You can also combine **BETWEEN** with the **NOT** logical operator:
+   * value **NOT BETWEEN** low **AND** high
+
+* The **NOT BETWEEN** operator is the same as:
+   * value < low **OR** value > high
+   * value **NOT BETWEEN** low **AND** high
+
+* The **BETWEEN** operator is the same as:
+   * value >= low **AND** value <= high
+   * value **BETWEEN** low **AND** high
+
+* The **BETWEEN** operator can also be used with dates. You need to format dates in the ISO 8601 standard format, which is YYYY-MM-DD. 
+   * date **BETWEEN** '2007-01-01' **AND** '2007-02-01'
+
+
