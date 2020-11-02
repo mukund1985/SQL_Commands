@@ -144,8 +144,7 @@ WHERE address = '259 Ipoh Drive'
 * If you leave it blank, **ORDER BY** uses ASC by default.
 
 
-
-* Basic Syntax for **ORDER BY** - 
+Basic Syntax for **ORDER BY** - 
 
 ```sql
 SELECT column_1,column_2
@@ -154,11 +153,29 @@ ORDER BY column_1 ASC/DESC
 ```
 
 ```sql
-
 SELECT address_id FROM customer
 ORDER BY address_id ASC
 ```
 
+```sql
+SELECT company,name,sales FROM table
+ORDER BY company,sales
+```
+
+```sql
+SELECT first_name,last_name FROM customer
+ORDER BY store_id DESC,first_name ASC
+```
+
 **Note** - ORDER BY comes towards the ends of a query, since we want to do any selection and filtering first, before finally sorting. 
 
+
+#### LIMIT Keyword - 
+
+* The **LIMIT** command allows us to limit the number of rows returned for a query. 
+* Useful for not wanting to return every single row in a table, but only view the top few rows to get an idea of the table layout.
+* **LIMIT** also becomes useful in combination with **ORDER BY**
+* **LIMIT** goest at the very end of a query request and is the last command to be executed. 
+
+Its time to see some examples - 
 
