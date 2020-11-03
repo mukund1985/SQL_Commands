@@ -154,6 +154,69 @@ WHERE TableA.id IS null OR
 TableB.id IS null
 ```
 
+* Examples - 
+
+```sql
+SELECT * FROM customer
+FULL OUTER JOIN payment
+ON customer.customer_id = payment.customer_id
+WHERE customer.customer_id IS null
+OR payment.payment_id IS null
+```
 
 
+**LEFT OUTER JOIN** 
+
+* A **LEFT OUTER JOIN** results in the set of records that are in the left table, if there is no match with the right table, the results are null. 
+
+* We can add **WHERE** statement to modify a **LEFT OUTER JOIN**. 
+
+* So what is **LEFT OUTER JOIN** actually looks like - 
+
+```sql 
+SELECT * FROM TableA
+LEFT OUTER JOIN TableB
+ON TableA.col_match = TableB.col_match
+```
+
+Are same as - 
+
+```sql 
+SELECT * FROM TableA
+LEFT JOIN TableB
+ON TableA.col_match = TableB.col_match
+```
+
+ **LEFT OUTER JOIN** With **WHERE** (Get rows unique to left table) - 
+
+* What if we only wanted entries unique to Table A? Those rows found in Table A and **not** found in Table B. 
+
+The way we do that - 
+
+```sql
+SELECT * FROM TableA
+LEFT OUTER JOIN TableB
+ON TableA.col_match = TableB.col_match
+WHERE TableB.id IS null
+```
+
+```sql
+SELECT film.film_id,title,inventory_id,store_id
+FROM film
+LEFT JOIN inventory ON
+inventory.film_id = film.film_id
+WHERE inventory.film_id IS null
+```
+
+**RIGHT JOIN** 
+
+* A **RIGHT JOIN** is essentially the same as a **LEFT JOIN**, except the tables are switched.
+
+* This would be the same as switching the table order in a **LEFT OUTER JOIN**.
+
+```sql
+SELECT * FROM TableA
+RIGHT OUTER JOIN TableB
+ON TableA.col_match = TableB.col_match
+```
 
