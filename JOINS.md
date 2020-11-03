@@ -219,4 +219,71 @@ SELECT * FROM TableA
 RIGHT OUTER JOIN TableB
 ON TableA.col_match = TableB.col_match
 ```
+* This as same as **LEFT JOIN** but opposite i.e. Only find table exclusively for Table B or both in Table A and Table B but not exclusively for Table A. 
 
+* We can also clarifiying **RIGHT OUTER JOIN** as well - 
+
+```sql
+SELECT * FROM TableA
+RIGHT OUTER JOIN TableB
+ON TableA.col_match = TableB.col_match
+WHERE TableA.id IS null
+```
+
+**UNION** 
+
+* The **UNION** operator is used to combine the result-set of two or more **SELECT** statements. 
+
+* It basically serves to directly concatenate two results together, essentially "pasting" them together. 
+
+* Syntax - 
+
+```sql
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+```
+
+```sql
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2
+ORDER BY name;
+```
+
+
+**Excercise** 
+
+1. California sales tax laws have changed and we need to alert our customer to this through email.
+    * What are the emails of the customer who live in California? 
+
+```sql
+SELECT district,email FROM address
+INNER JOIN customer 
+ON address.address_id = customer.address_id
+WHERE district = 'California'
+```
+
+* I can also do like below - 
+
+```sql
+SELECT district,email FROM customer
+INNER JOIN address 
+ON address.address_id = customer.address_id
+WHERE district = 'California'
+```
+
+* Above both are same because it is not impacting it here. 
+
+2. A customer walk in and is a huge fan of the actor "Nick Wahlberg" and wants to know which movies he is in. 
+   * Get a list of all the movies "Nick Wahlberg" has been in. 
+
+   ```sql
+   SELECT title,first_name,last_name
+   FROM film_actor INNER JOIN actor
+   ON film_actor.actor_id = actor.actor_id
+   INNER JOIN film
+   ON film_actor.film_id = film.film_id
+   WHERE first_name = 'Nick'
+   AND last_name = 'Wahlberg'
+   ```
